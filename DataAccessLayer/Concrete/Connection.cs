@@ -9,6 +9,6 @@ namespace DataAccessLayer
 {
     public class Connection
     {
-        public static SqlConnection connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SchoolDb;Integrated Security=True");
+        public static SqlConnection connection = new SqlConnection("Data Source=DESKTOP-D3HGLAO\\SQLEXPRESS;Initial Catalog=SchoolDb;Integrated Security=True");
     }
 }

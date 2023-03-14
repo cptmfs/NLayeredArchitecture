@@ -31,7 +31,22 @@ namespace SchoolManagement
         {
             List<EntityLesson> list = LessonManager.GetLessonsBL();
             dgwLesson.DataSource= list;
+        }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            byte deger = byte.Parse(txtLessonId.Text);
+            EntityLesson lesson = new EntityLesson();
+            lesson.LessonID = deger;
+            LessonManager.DeleteLessonBL(deger);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            EntityLesson lesson = new EntityLesson();
+            lesson.LessonName = txtLessonName.Text;
+            lesson.LessonID = byte.Parse(txtLessonId.Text);
+            LessonManager.UpdateLessonBL(lesson);
         }
     }
 }

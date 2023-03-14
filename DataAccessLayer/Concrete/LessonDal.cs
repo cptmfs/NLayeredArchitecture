@@ -44,5 +44,27 @@ namespace DataAccessLayer.Concrete
             dataReader.Close();
             return lessons;
         }
+        public static int DeleteLesson(byte p)
+        {
+            SqlCommand cmd3 = new SqlCommand("Delete  from datLesson where LessonId=@p1", Connection.connection);
+            if (cmd3.Connection.State!=ConnectionState.Open)
+            {
+                cmd3.Connection.Open();
+            }
+            cmd3.Parameters.AddWithValue("@p1",p);
+            return cmd3.ExecuteNonQuery();
+
+        }
+        public static int UpdateLesson(EntityLesson lesson)
+        {
+            SqlCommand cmd4 = new SqlCommand("Update datLesson set LessonName=@p1 where LessonId=@p2", Connection.connection);
+            if (cmd4.Connection.State!=ConnectionState.Open)
+            {
+                cmd4.Connection.Open();
+            }
+            cmd4.Parameters.AddWithValue("@p1",lesson.LessonName);
+            cmd4.Parameters.AddWithValue("@p2",lesson.LessonID);
+            return cmd4.ExecuteNonQuery();
+        }
     }
 }

@@ -22,5 +22,24 @@ namespace BusinessLayer
         {
             return LessonDal.GetLessons();
         }
+        public static int DeleteLessonBL(byte p)
+        {
+            if (p>=1)
+            {
+                return LessonDal.DeleteLesson(p);
+            }
+            else
+            {
+                return -1;  
+            }
+        }
+        public static int UpdateLessonBL(EntityLesson lesson)
+        {
+            if (lesson.LessonName!="" && lesson.LessonName.Length>=3 && lesson.LessonName.Length<=30 && lesson.LessonID>=1)
+            {
+                return LessonDal.UpdateLesson(lesson);
+            }
+            return -1;
+        }
     }
 }

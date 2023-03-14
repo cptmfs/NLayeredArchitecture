@@ -19,5 +19,38 @@ namespace BusinessLayer
             }
                 return -1;
         }
+        public static List<EntityStudent> GetStudentsBL()
+        {
+            return StudentDal.GetStudents();
+        }
+        public static int DeleteStudentBL(int p)
+        {
+            if (p>=1)
+            {
+                return StudentDal.DeleteStudent(p);
+
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        public static int UpdateStudentBL(EntityStudent entityStudent)
+        {
+            if (entityStudent.FirstName.Length>=3 && entityStudent.LastName.Length>=3 && entityStudent.StudentID>=1 && entityStudent.Department!="" && entityStudent.Department.Length>=3 && entityStudent.Department.Length<=30 )
+            {
+                return StudentDal.UpdateStudent(entityStudent);
+
+            }
+            return -1;
+        }
+        public static int SearchStudentBL(int id)
+        {
+            if (id==5)
+            {
+                return StudentDal.SearchStudent(id);
+            }
+            return -1;
+        }
     }
 }
