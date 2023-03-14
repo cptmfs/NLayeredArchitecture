@@ -48,5 +48,11 @@ namespace SchoolManagement
             lesson.LessonID = byte.Parse(txtLessonId.Text);
             LessonManager.UpdateLessonBL(lesson);
         }
+
+        private void dgwLesson_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtLessonId.Text = dgwLesson.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtLessonName.Text = dgwLesson.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
     }
 }

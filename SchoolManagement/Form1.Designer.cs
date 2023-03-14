@@ -49,6 +49,7 @@
             this.dgwLesson.Name = "dgwLesson";
             this.dgwLesson.Size = new System.Drawing.Size(472, 234);
             this.dgwLesson.TabIndex = 0;
+            this.dgwLesson.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwLesson_CellClick);
             // 
             // btnAdd
             // 
