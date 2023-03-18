@@ -55,7 +55,8 @@ namespace SchoolManagement
             es.LastName = txtLastName.Text;
             es.StudentNumber = mskNo.Text;
             es.Department = txtDepartment.Text;
-            StudentManager.StudentAddBL(es);
+            StudentManager.UpdateStudentBL(es);
+            MessageBox.Show("Güncelleme işlemi başarılı", "Güncelle", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgwLesson_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -70,11 +71,13 @@ namespace SchoolManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //int sID = int.Parse(mskNo.Text);
-            //EntityStudent es = new EntityStudent();
-            //es.StudentNumber = sID.ToString() ;
-            //StudentManager.SearchStudentBL(sID);
-            //dgwLesson.DataSource = sID;
+            int sID = int.Parse(mskNo.Text);
+            EntityStudent es = new EntityStudent();
+            es.StudentNumber = sID.ToString();
+            StudentManager.SearchStudentBL(sID);           
+            dgwLesson.DataSource = es.StudentNumber;
+            
+
         }
     }
 }

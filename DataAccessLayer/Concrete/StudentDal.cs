@@ -81,6 +81,9 @@ namespace DataAccessLayer
                 cmd5.Connection.Open();
             }
             cmd5.Parameters.AddWithValue("@p1",id);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd5);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
             return cmd5.ExecuteNonQuery();
         }
         
